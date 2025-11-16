@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Gallery | VLV ASSOCIATES</title>
+
+  <style>
+    body{margin:0;font-family:Inter,system-ui;color:var(--text);background:var(--bg);}
+    :root{--bg:#fff;--text:#0d1721;--muted:#5b6670;--card:#fafafa;}
+    [data-theme="dark"]{--bg:#0b0e12;--text:#e6eef8;--muted:#9fb0c8;--card:#081018;}
+    header{position:sticky;top:0;padding:14px 20px;background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);display:flex;justify-content:space-between;}
+    nav a{margin-left:12px;text-decoration:none;color:var(--muted);}
+    nav a:hover{color:var(--text);}
+    .hero{padding:70px 20px;text-align:center;background:url('https://images.unsplash.com/photo-1581091012184-5c5c5c5c5c5c?auto=format&fit=crop&w=1200&q=70') center/cover;color:#fff;}
+    .hero h1{font-size:42px;font-weight:800;text-shadow:0 4px 20px rgba(0,0,0,0.4);}
+    .gallery{max-width:1200px;margin:auto;padding:30px 20px;display:grid;gap:16px;}
+    @media(min-width:600px){.gallery{grid-template-columns:repeat(3,1fr);}}
+    .gallery img{width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.1);}
+    footer{text-align:center;color:var(--muted);padding:20px;}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div style="font-weight:700;">VLV ASSOCIATES</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Project Gallery</h1>
+  <p>Completed projects, interiors, plumbing & construction works</p>
+</section>
+
+<div class="gallery">
+  <img src="https://source.unsplash.com/600x400/?interior" alt="">
+  <img src="https://source.unsplash.com/600x400/?plumbing" alt="">
+  <img src="https://source.unsplash.com/600x400/?kitchen" alt="">
+  <img src="https://source.unsplash.com/600x400/?construction" alt="">
+  <img src="https://source.unsplash.com/600x400/?house,design" alt="">
+  <img src="https://source.unsplash.com/600x400/?bathroom" alt="">
+</div>
+
+<footer>© 2025 VLV ASSOCIATES</footer>
+
+</body>
+</html>
