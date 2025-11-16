@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VLV ASSOCIATES | Plumbing • Interiors • Electrical • Construction</title>
+  <meta name="description" content="VLV ASSOCIATES offers emergency plumbing, interiors, electrical, tiling, and complete construction services. Fast response, transparent pricing, and trusted experts." />
+  <meta name="theme-color" content="#0b6bff" />
+
+  <!-- Inline critical CSS (keeps LCP fast) -->
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0d1721; --muted:#5b6670;
+      --primary:#0b6bff; --accent:#0bb36b; --card:#fafafa;
+      --glass: rgba(255,255,255,0.6);
+      --radius:12px;
+      --shadow: 0 6px 20px rgba(15,23,42,0.08);
+      --ease: cubic-bezier(.2,.9,.3,1);
+    }
+    [data-theme="dark"]{
+      --bg:#0b0e12; --text:#e6eef8; --muted:#9fb0c8;
+      --primary:#4ea3ff; --accent:#55d48a; --card:#081018;
+      --glass: rgba(3,6,10,0.6);
+      --shadow: 0 8px 30px rgba(2,6,23,0.7);
+    }
+
+    /* Basic reset and layout */
+    html,body{height:100%; margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    *{box-sizing:border-box}
+    a{color:inherit}
+    img{max-width:100%; display:block}
+
+    header{
+      position:sticky; top:0; z-index:60;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:12px 20px;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, var(--glass), transparent);
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
+    .brand{font-weight:800; font-size:18px; letter-spacing:0.2px;}
+    nav{display:flex; gap:12px; align-items:center; font-size:14px;}
+    nav a{padding:8px 10px; border-radius:8px; text-decoration:none; color:var(--muted);}
+    nav a:hover{color:var(--text); background:rgba(11,107,255,0.06);}
+    .cta{padding:10px 14px; border-radius:12px; font-weight:600; text-decoration:none;}
+    .btn-primary{background:linear-gradient(180deg,var(--primary),#0760d7); color:#fff; box-shadow: var(--shadow);}
+    .btn-secondary{background:linear-gradient(180deg,#06b66a,var(--accent)); color:#fff; box-shadow: var(--shadow);}
+
+    /* Theme toggle */
+    .controls{display:flex; align-items:center; gap:10px;}
+    .theme-toggle{
+      background:transparent; border:1px solid rgba(0,0,0,0.06); padding:8px; border-radius:999px; cursor:pointer;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .theme-toggle svg{width:18px;height:18px; display:block}
+
+    /* HERO: large, full-height */
+    .hero{
+      min-height: calc(100vh - 68px); /* header height approx 68 */
+      display:flex; align-items:center; justify-content:center;
+      padding:36px 18px;
+      background-image:
+        linear-gradient(180deg, rgba(3,6,10,0.36), rgba(3,6,10,0.18)),
+        url('https://images.unsplash.com/photo-1560185127-6ed189bf02bb?auto=format&fit=crop&w=1600&q=70');
+      background-size:cover; background-position:center center; color:#fff; text-align:center;
+      position:relative;
+    }
+    .hero-inner{
+      max-width:1100px; width:100%; padding:28px; background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border-radius:16px;
+      backdrop-filter: blur(6px); box-shadow: var(--shadow);
+      transform: translateY(0); opacity:1;
+      animation: fadeUp 700ms var(--ease) both;
+    }
+    .hero h1{font-size:clamp(28px,5.2vw,56px); margin:0 0 12px; line-height:1.02; font-weight:900; text-shadow:0 6px 30px rgba(2,6,23,0.35);}
+    .hero p{margin:0 0 18px; color:rgba(255,255,255,0.92); font-size:clamp(14px,1.6vw,18px);}
+    .hero .actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:8px;}
+    .hero .hero-tag{display:inline-block; font-weight:600; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.06); color:#fff; font-size:13px;}
+
+    /* Layout sections */
+    main{max-width:1200px; margin:28px auto; padding:0 18px;}
+    section{padding:28px 0;}
+    h2{font-size:20px; color:var(--text); margin:0 0 18px;}
+    .grid{display:grid; gap:18px;}
+    .grid-3{grid-template-columns:1fr;}
+    @media(min-width:880px){ .grid-3{grid-template-columns:repeat(3,1fr);} }
+
+    .card{
+      background:var(--card); border-radius:16px; padding:18px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.03);
+      transform:translateY(0); transition:transform 320ms var(--ease), box-shadow 320ms var(--ease);
+      will-change:transform;
+      animation: fadeUp 700ms var(--ease) both;
+    }
+    .card:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(2,6,23,0.12); }
+    .card h3{margin:0 0 8px; font-size:16px;}
+    .card p{margin:0 0 14px; color:var(--muted); font-size:14px}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .footer{background:transparent; padding:36px 18px; color:var(--muted); border-top:1px solid rgba(0,0,0,0.04); text-align:center; border-radius:12px}
+    .footer a{color:var(--muted); text-decoration:none}
+    .logo-row{display:flex; gap:12px; align-items:center}
+
+    /* WhatsApp floating button */
+    .whatsapp-btn{
+      position:fixed; right:18px; bottom:18px; z-index:90;
+      display:inline-grid; place-items:center; width:64px; height:64px; border-radius:999px;
+      background:linear-gradient(180deg,#25D366,#128C7E); color:white; box-shadow:0 12px 30px rgba(18,140,126,0.22);
+      text-decoration:none; font-weight:700; transition:transform 160ms var(--ease);
+    }
+    .whatsapp-btn:hover{ transform:translateY(-6px); }
+
+    /* small screens adjustments */
+    @media (max-width:520px){
+      header{padding:10px 14px}
+      nav{display:none}
+      .hero-inner{padding:18px}
+    }
+
+    /* Animations */
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(10px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      .hero-inner, .card{ animation: none; transition:none; }
+    }
+  </style>
+
+  <!-- JSON-LD LocalBusiness for SEO (kept intact) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"VLV ASSOCIATES",
+    "image":"https://example.com/logo.png",
+    "telephone":"+91XXXXXXXXXX",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Your Street",
+      "addressLocality":"Your City",
+      "addressRegion":"Your State",
+      "addressCountry":"IN"
+    },
+    "priceRange":"₹₹",
+    "description":"Plumbing, Interiors, Electrical, Tiling, and Complete Construction Services"
+  }
+  </script>
+</head>
+
+<body>
+  <header role="banner" aria-label="Main header">
+    <div class="logo-row">
+      <div class="brand" aria-hidden="true">VLV ASSOCIATES</div>
+      <div style="font-size:13px;color:var(--muted);margin-left:6px;">Plumbing • Interiors • Construction</div>
+    </div>
+
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a class="cta btn-primary" href="tel:+91XXXXXXXXXX">Call Now</a>
+    </nav>
+
+    <div class="controls" aria-hidden="false">
+      <button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Toggle dark / light mode">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <span style="font-size:13px;color:var(--muted);">Theme</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" role="region" aria-label="Hero">
+    <div class="hero-inner" role="article">
+      <div class="hero-tag" aria-hidden="true">24/7 Emergency • Trusted Technicians</div>
+      <h1>Fast, Reliable Plumbing • Interiors • Full Construction</h1>
+      <p>Rapid response, transparent pricing, certified teams — from emergency repairs to turnkey interiors. Serving Bangalore and surrounding Tier-1 areas.</p>
+
+      <div class="actions" role="group" aria-label="Primary actions">
+        <a class="cta btn-primary" href="tel:+91XXXXXXXXXX" aria-label="Call VLV Associates">Call Now — 24/7</a>
+        <a class="cta btn-secondary" href="/contact/" aria-label="Request service online">Request Service</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- What we do -->
+    <section class="catalog" aria-labelledby="whatwedo">
+      <h2 id="whatwedo">What We Do</h2>
+      <div class="grid grid-3">
+        <article class="card" aria-labelledby="plumbingTitle">
+          <h3 id="plumbingTitle">Plumbing Services</h3>
+          <p>Emergency repairs, water heaters, leak fixing, drainage, fittings — fast onsite response.</p>
+          <a class="muted" href="/services/emergency-plumbing/">Explore →</a>
+        </article>
+
+        <article class="card" aria-labelledby="interiorsTitle">
+          <h3 id="interiorsTitle">Interiors & Designing</h3>
+          <p>Home and office interiors: modular kitchens, false ceilings and 3D interior designs.</p>
+          <a class="muted" href="/services/plumbing-for-interiors/">Explore →</a>
+        </article>
+
+        <article class="card" aria-labelledby="constructionTitle">
+          <h3 id="constructionTitle">Complete Construction</h3>
+          <p>Electrical, tiling, flooring, exterior works, renovations and turnkey projects.</p>
+          <a class="muted" href="/pricing/">Learn More →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" aria-labelledby="ourservices">
+      <h2 id="ourservices">Our Key Services</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Emergency Plumbing</h3>
+          <p>Fast response for leaks, bursts, and blockages — 24/7 service.</p>
+          <a class="muted" href="/services/emergency-plumbing/">View Service →</a>
+        </div>
+        <div class="card">
+          <h3>Drain Cleaning</h3>
+          <p>High-pressure jet cleaning, CCTV inspection and safe removal.</p>
+          <a class="muted" href="/services/drain-cleaning/">View Service →</a>
+        </div>
+        <div class="card">
+          <h3>Water Heater Installation</h3>
+          <p>Installations & servicing for all major brands, compliance-tested.</p>
+          <a class="muted" href="/services/water-heater-installation/">View Service →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="trust" aria-labelledby="whychoose">
+      <h2 id="whychoose">Why Clients Choose Us</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Fast Response</h3>
+          <p>Emergency-ready teams and same-day resolutions where possible.</p>
+        </div>
+        <div class="card">
+          <h3>Transparent Pricing</h3>
+          <p>Clear, itemized estimates before work begins; no hidden costs.</p>
+        </div>
+        <div class="card">
+          <h3>Certified Technicians</h3>
+          <p>Experienced professionals and warranty-backed workmanship.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div style="max-width:960px;margin:0 auto">
+      <h3 style="margin:0 0 6px;">VLV ASSOCIATES</h3>
+      <p style="margin:0 0 12px;">Your trusted partner for plumbing, interiors, electrical, tiling, and turnkey construction.</p>
+      <div style="font-size:13px;color:var(--muted);">
+        <a href="/privacy/">Privacy Policy</a> •
+        <a href="/terms/">Terms</a> •
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p style="margin-top:14px; font-size:13px; color:var(--muted);">© 2025 VLV ASSOCIATES. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating chat -->
+  <!-- Replace phone number and message below with your actual contact text -->
+  <a class="whatsapp-btn" id="whatsappBtn"
+     href="https://wa.me/91XXXXXXXXXX?text=Hello%20VLV%20Associates%2C%20I%20need%20assistance%20with%20a%20service."
+     target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <!-- WhatsApp SVG -->
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="none" aria-hidden="true">
+      <path d="M20.54 3.46A11.78 11.78 0 0012.06.5 11.95 11.95 0 00.5 12c0 2.1.55 4.08 1.6 5.84L.5 23.5l5.96-1.55A11.94 11.94 0 0012.06 24c6.63 0 12-5.37 12-12 0-3.2-1.24-6.19-3.52-8.54z" fill="white" opacity="0.06"/>
+      <path d="M17.35 14.65c-.46-.23-2.72-1.34-3.14-1.5-.42-.16-.72-.23-1.03.23-.3.46-1.16 1.5-1.42 1.8-.26.3-.52.34-1-.11-.48-.46-1.86-1.73-2.88-2.35-.58-.36-.06-.56.42-1.05.44-.44.9-.96 1.28-1.44.38-.48.5-.8.74-1.3.24-.5.12-.93-.09-1.17-.22-.22-1.03-2.5-1.42-3.53-.37-.95-.76-.82-1.03-.84-.27-.02-.58-.03-.89-.03-.3 0-.8.11-1.21.56-.42.45-1.58 1.54-1.58 3.76 0 2.23 1.82 4.39 2.07 4.69.25.3 3.58 5.68 8.69 7.37 1.22.46 2.16.74 2.9.95.86.24 1.64.2 2.25.12.69-.09 2.72-1.11 3.1-2.18.38-1.07.38-1.99.27-2.18-.12-.19-.43-.29-.89-.52z" fill="#fff"/>
+    </svg>
+  </a>
+
+  <!-- Lightweight JS for theme toggle + accessible states -->
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const icon = document.getElementById('themeIcon');
+
+      // Determine initial theme (localStorage -> prefers-color-scheme -> default light)
+      const stored = localStorage.getItem('vlv-theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = stored ? stored : (prefersDark ? 'dark' : 'light');
+      setTheme(initialTheme, false);
+
+      // Toggle handler
+      toggle.addEventListener('click', function(){
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        setTheme(next, true);
+        toggle.setAttribute('aria-pressed', current === 'light' ? 'true' : 'false');
+      });
+
+      // Set theme function
+      function setTheme(theme, persist = true){
+        if(theme === 'dark'){
+          root.setAttribute('data-theme','dark');
+          icon.innerHTML = '<path d=\"M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z\" fill=\"currentColor\"/>';
+        } else {
+          root.removeAttribute('data-theme');
+          icon.innerHTML = '<path d=\"M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"12\" cy=\"12\" r=\"3\" stroke=\"currentColor\" stroke-width=\"1.6\"/>';
+        }
+        if(persist) localStorage.setItem('vlv-theme', theme);
+      }
+
+      // Accessibility: keyboard support for ESC to close any popups (if later extended)
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') {
+          // placeholder for future modal close logic
+        }
+      });
+
+      // Progressive enhancement: adjust theme color meta for mobile address bar
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      function updateMetaColor(){
+        const computed = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#0b6bff';
+        metaTheme.setAttribute('content', computed);
+      }
+      updateMetaColor();
+      // update if theme toggles
+      const obs = new MutationObserver(updateMetaColor);
+      obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    })();
+  </script>
+
+  <!-- End body -->
+</body>
+</html>
